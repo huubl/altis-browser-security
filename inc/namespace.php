@@ -168,13 +168,13 @@ function generate_hash_for_asset( WP_Dependencies $dependencies, string $handle 
 
 	// Translate the script back to a path if possible.
 	$src = $asset->src;
-	$site_url = trailingslashit( site_url() );
-	if ( substr( $src, 0, strlen( $site_url ) ) !== $site_url ) {
+	$home_url = trailingslashit( home_url() );
+	if ( substr( $src, 0, strlen( $home_url ) ) !== $home_url ) {
 		// Not a local asset, skip.
 		return null;
 	}
 
-	$rel_path = substr( $src, strlen( $site_url ) );
+	$rel_path = substr( $src, strlen( $home_url ) );
 	$query = '';
 	if ( strpos( $rel_path, '?' ) !== false ) {
 		list( $rel_path, $query ) = explode( '?', $rel_path, 2 );
