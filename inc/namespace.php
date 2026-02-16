@@ -231,7 +231,7 @@ function generate_hash_for_asset( WP_Dependencies $dependencies, string $handle 
 	}
 
 	// Generate the hash.
-	$hash = generate_hash_for_path( $actual_path, $asset->ver );
+	$hash = generate_hash_for_path( $actual_path, $asset->ver ?: $dependencies->default_version );
 	if ( empty( $hash ) ) {
 		// Couldn't generate a hash.
 		return new WP_Error(
