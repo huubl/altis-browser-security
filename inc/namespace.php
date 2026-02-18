@@ -230,8 +230,16 @@ function generate_hash_for_asset( WP_Dependencies $dependencies, string $handle 
 		);
 	}
 
+	// Determine version with default version following same logic as core WP_Scripts and WP_Styles. 
+	if ( null === $asset->ver ) {
+		$ver = '';
+	} else {
+		$ver = $asset->ver ? $asset->ver : $dependencies->default_version;
+	}
+
 	// Generate the hash.
-	$hash = generate_hash_for_path( $actual_path, $asset->ver ?: $dependencies->default_version );
+	$hash = generate_hash_for_path( $actual_path, $ver );
+
 	if ( empty( $hash ) ) {
 		// Couldn't generate a hash.
 		return new WP_Error(
