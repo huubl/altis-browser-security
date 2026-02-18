@@ -232,13 +232,13 @@ function generate_hash_for_asset( WP_Dependencies $dependencies, string $handle 
 
 	// Determine version with default version following same logic as core WP_Scripts and WP_Styles. 
 	if ( null === $asset->ver ) {
-		$ver = '';
+		$version = '';
 	} else {
-		$ver = $asset->ver ? $asset->ver : $dependencies->default_version;
+		$version = $asset->ver ? $asset->ver : $dependencies->default_version;
 	}
 
 	// Generate the hash.
-	$hash = generate_hash_for_path( $actual_path, $ver );
+	$hash = generate_hash_for_path( $actual_path, $version );
 
 	if ( empty( $hash ) ) {
 		// Couldn't generate a hash.
