@@ -234,7 +234,7 @@ function generate_hash_for_asset( WP_Dependencies $dependencies, string $handle 
 	if ( null === $asset->ver ) {
 		$version = '';
 	} else {
-		$version = $asset->ver ? $asset->ver : $dependencies->default_version;
+		$version = $asset->ver ?: $dependencies->default_version;
 	}
 
 	// Generate the hash.
