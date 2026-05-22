@@ -7,7 +7,7 @@ use WP_REST_Request;
 
 class Test_Rest_Allow_Origins extends WP_UnitTestCase {
 
-	function setUp() {
+	function setUp(): void {
 		parent::setUp();
 	}
 

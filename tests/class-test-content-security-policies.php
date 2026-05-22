@@ -5,7 +5,7 @@ namespace Altis\Security\Browser;
 use WP_UnitTestCase;
 
 class Test_Content_Security_Policies extends WP_UnitTestCase {
-	function setUp() {
+	function setUp(): void {
 		Output::reset();
 		parent::setUp();
 	}
